@@ -10,11 +10,23 @@ export default {
 <template>
     <header>
         <h1>{{ msg }}</h1>
+        <div class="button">Select Category
+            <font-awesome-icon icon="fa-solid fa-angle-down" />
+        </div>
     </header>
 </template>
 
 <style lang="scss" scoped>
+@use '../style/partials/variables' as*;
+
 h1 {
-    margin: 20px 0 0 20px;
+    margin: 20px 0 50px 20px;
+}
+
+.button {
+    width: 10%;
+    margin-left: 150px;
+    background-color: white;
+    padding: 10px;
 }
 </style>
