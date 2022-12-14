@@ -1,5 +1,6 @@
 <script>
-import AppHeader from './components/AppHeader.vue'
+import AppHeader from './components/AppHeader.vue';
+import CharacterList from './components/CharacterList.vue';
 // Importo lo "store" da store.js
 import { store } from './store.js';
 
@@ -7,6 +8,7 @@ export default {
   name: "App",
   components: {
     AppHeader,
+    CharacterList,
   },
   data() {
     return {
@@ -22,7 +24,7 @@ export default {
     <!-- Vado a prendere da "store" il "titolo" -->
     <AppHeader :msg="store.titolo" />
     <main>
-
+      <CharacterList />
     </main>
   </body>
 </template>
@@ -30,12 +32,6 @@ export default {
 <style lang="scss" >
 @use './style/general.scss' as*;
 @use './style/partials/variables' as*;
-
-body {
-  width: 100%;
-  height: 100vh;
-  background-color: #2e3a46;
-}
 
 h1 {
   color: $primary;
