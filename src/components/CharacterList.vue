@@ -15,23 +15,35 @@ export default {
             store,
         }
     },
-
 }
 
 </script>
 
 <template>
-    <div class="found"></div>
+    <div class="found">
+        <h2>Found {{ store.characterList.length }} characters</h2>
+    </div>
     <section class="container">
-        <SingleCharacter />
+        <!-- Creo un  v-for per stampare le altre "cards" dinamicamente-->
+        <div v-for="character in store.characterList" :key="character.id">
+            <SingleCharacter :info="character" />
+        </div>
     </section>
 </template>
 
 <style lang="scss" scoped>
+@use '../style/partials/variables' as*;
+
+
 .found {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     width: 90%;
-    height: 20px;
-    margin: 0 auto;
+    height: 50px;
+    padding-left: 20px;
+    margin: 20px auto;
+    color: white;
     background-color: black;
 }
 
@@ -40,7 +52,6 @@ export default {
     flex-wrap: wrap;
     justify-content: space-around;
     width: 90%;
-    height: 500px;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 </style>
