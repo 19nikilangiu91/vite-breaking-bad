@@ -2,7 +2,7 @@
 
 export default {
     name: "SingleCharacter",
-    props: [],
+    props: ["info"],
 }
 
 </script>
@@ -10,10 +10,10 @@ export default {
 <template>
     <!-- Template di card singola -->
     <div class="character">
-        <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="image">
-        <h4 class="name">nome</h4>
-        <div class="status">stato</div>
-        <div class="species">specie</div>
+        <img :src="info.image" alt="image">
+        <h4 class="name">{{ info.name }}</h4>
+        <div class="status">{{ info.status }}</div>
+        <div class="species">{{ info.species }}</div>
     </div>
 
 </template>
@@ -22,15 +22,14 @@ export default {
 .character {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 120px;
-    height: 200px;
+    width: 200px;
+    height: 250px;
     margin: 5px;
-    background-color: red;
+    background-color: #2e3a46;
 
     img {
-        width: 100px;
-        height: 100px;
+        width: 100%;
+        height: 150px;
         align-self: center;
     }
 
@@ -39,6 +38,7 @@ export default {
     .species {
         margin-top: 5px;
         align-self: center;
+        text-align: center;
     }
 }
 </style>
