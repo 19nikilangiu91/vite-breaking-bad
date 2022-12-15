@@ -2,6 +2,10 @@ import { createApp } from 'vue'
 // import './style.css'
 import App from './App.vue'
 
+// Bootstrap Install
+// import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap"
+
 // FontAwesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
