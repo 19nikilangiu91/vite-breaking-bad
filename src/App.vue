@@ -2,6 +2,7 @@
 // Importo Axios
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
+import AppSelect from './components/AppSelect.vue';
 import CharacterList from './components/CharacterList.vue';
 // Importo lo "store" da store.js
 import { store } from './store.js';
@@ -10,6 +11,7 @@ export default {
   name: "App",
   components: {
     AppHeader,
+    AppSelect,
     CharacterList,
   },
   data() {
@@ -19,8 +21,17 @@ export default {
   },
   methods: {
     getCharacters() {
+
+      // Dichiaro la variabile "myUrl"
+      let myUrl = store.apiURL;
+
+      // Creo la condizione per lo "store.searchStatus" dove se non è "" gli inserisco i parametri che mi servono.
+      if (store.searchStatus !== "") {
+        myUrl += `?${store.apiParameter}=${store.searchStatus}`;
+      }
+
       axios
-        .get(store.apiURL)
+        .get(myUrl)
         .then(res => {
           store.characterList = res.data.results;
         })
@@ -40,6 +51,8 @@ export default {
   <body>
     <!-- Vado a prendere da "store" il "titolo" -->
     <AppHeader :msg="store.titolo" />
+    <!-- Vado a prendere da "@search" gli "Status" che mi servono. -->
+    <AppSelect @search="getCharacters" />
     <main>
       <CharacterList />
     </main>
